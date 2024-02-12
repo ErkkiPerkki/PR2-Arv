@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arv Genomgång")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08c0647471b887281cd070496ae209e0308eca25")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arv Genomgång")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arv Genomgång")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

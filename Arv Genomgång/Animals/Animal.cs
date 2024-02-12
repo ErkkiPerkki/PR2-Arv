@@ -32,7 +32,7 @@
             if (shouldDie) return true;
             
 
-            _age += 1;
+            _age += 3;
             return false;
         }
     }
