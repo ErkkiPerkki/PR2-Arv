@@ -40,7 +40,7 @@
 
         static public string FirstLetterUppercase(string String)
         {
-            return $"{char.ToUpper(String[0])}{String.Substring(1)}";
+            return $"{char.ToUpper(String[0])}{String.Substring(1).ToLower()}";
         }
 
     }

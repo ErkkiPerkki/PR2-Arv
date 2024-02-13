@@ -12,3 +12,18 @@ C:\Users\TE22ERILUN\Desktop\Programmering 2\Arv Genomgång\Arv Genomgång\Arv Ge
 C:\Users\TE22ERILUN\Desktop\Programmering 2\Arv Genomgång\Arv Genomgång\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.pdb
 C:\Users\TE22ERILUN\Desktop\Programmering 2\Arv Genomgång\Arv Genomgång\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.genruntimeconfig.cache
 C:\Users\TE22ERILUN\Desktop\Programmering 2\Arv Genomgång\Arv Genomgång\Arv Genomgång\obj\Debug\net8.0\ref\Arv Genomgång.dll
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\bin\Debug\net8.0\Arv Genomgång.exe
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\bin\Debug\net8.0\Arv Genomgång.deps.json
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\bin\Debug\net8.0\Arv Genomgång.runtimeconfig.json
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\bin\Debug\net8.0\Arv Genomgång.dll
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\bin\Debug\net8.0\Arv Genomgång.pdb
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.AssemblyInfoInputs.cache
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.AssemblyInfo.cs
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.sourcelink.json
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.dll
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\refint\Arv Genomgång.dll
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.pdb
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\Arv Genomgång.genruntimeconfig.cache
+D:\Visual Studio Projects\PR2-Arv\Arv Genomgång\obj\Debug\net8.0\ref\Arv Genomgång.dll

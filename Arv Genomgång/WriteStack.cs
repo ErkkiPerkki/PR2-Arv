@@ -2,7 +2,7 @@
 {
     public class WriteStack
     {
-        public List<WriteStackItem> Items;
+        public List<WriteStackItem> Items = new();
 
         public WriteStack(List<WriteStackItem> items)
         {
@@ -11,7 +11,7 @@
             }
         }
 
-        public void Draw()
+        public void Draw(bool showNavigationCommands = true)
         {
             Console.Clear();
 
@@ -24,8 +24,9 @@
                 }
             }
 
-            Utility.ColoredWrite($"\nType 'exit' to return to the main menu\n", ConsoleColor.DarkRed);
-            Utility.ColoredWrite($"Type 'back' to return to the previous menu\n", ConsoleColor.DarkYellow);
+            if (!showNavigationCommands) return;
+            Utility.ColoredWrite($"\nType 'exit' to return to the main menu\n", ConsoleColor.Red);
+            Utility.ColoredWrite($"Type 'back' to return to the previous menu\n", ConsoleColor.DarkRed);
         }
     }
 }

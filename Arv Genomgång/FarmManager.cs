@@ -4,10 +4,12 @@ namespace Arv_Genomgång
 {
     internal class FarmManager
     {
-        static private int cash = 25;
+        static public int Cash = 25;
         static public string? currentCommand;
         static public string? previousCommand;
+        static public (string, List<Item>)? currentItem;
         static public Dictionary<string, List<Animal>> Animals = new();
+        static public Dictionary<string, List<Item>> Inventory = new();
 
         private static void Main()
         {
@@ -40,27 +42,38 @@ namespace Arv_Genomgång
                     if (currentCommand == "animals") {
                         Actions.DisplayAnimal(input);
                     }
+                    if (currentCommand == "inventory") {
+                        Actions.DisplayItem(input);
+                        continue;
+                    }
+                    if (currentCommand == "displayItem") {
+                        Actions.ItemAction(input);
+                    }
+
                     continue;
                 }
 
                 if (input == "animals") {
-                    Console.WriteLine("animals");
                     Actions.Animals();
+                    continue;
+                }
+
+                if (input == "inventory" || input == "inv") {
+                    Actions.Inventory();
+                    continue;
+                }
+
+                if (input == "market") {
+                    continue;
                 }
             }
 
         }
 
-        static private void DisplayCash()
-        {
-            Utility.ColoredWrite($"  [{cash}$]\n", ConsoleColor.Green);
-        }
-
         static private void UpdateAnimals()
         {
             while (true) {
-                
-                foreach(KeyValuePair<string, List<Animal>> pair in Animals) {
+                foreach (KeyValuePair<string, List<Animal>> pair in Animals) {
                     foreach(Animal animal in pair.Value) {
                         animal.Update();
                     }

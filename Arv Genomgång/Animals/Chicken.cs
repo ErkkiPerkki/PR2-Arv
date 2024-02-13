@@ -1,4 +1,6 @@
-﻿namespace Arv_Genomgång
+﻿using Arv_Genomgång.Items;
+
+namespace Arv_Genomgång
 {
     public class Chicken: Animal 
     {
@@ -10,11 +12,17 @@
         public override void Functionality()
         {
             int weight = Utility.Random.Next(38, 51);
+            Egg egg = new(weight);
 
-            Utility.AnimatedWrite("PLOP!");
-            Thread.Sleep(500);
-            Utility.AnimatedWrite($"Chicken layed an egg weighing {weight}g \n");
-            Thread.Sleep(500);
+            string key = egg.Name.ToLower();
+            if (!FarmManager.Inventory.ContainsKey(key)) {
+                FarmManager.Inventory.Add(key, new List<Item>());
+            }
+            FarmManager.Inventory[key].Add(egg);
+            
+
+            //Utility.AnimatedWrite("PLOP!");
+            //Utility.AnimatedWrite($"Chicken layed an egg weighing {weight}g \n");
         }
     }
 }

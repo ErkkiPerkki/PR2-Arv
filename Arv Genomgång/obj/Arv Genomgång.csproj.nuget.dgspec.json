@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TE22ERILUN\\Desktop\\Programmering 2\\Arv Genomgång\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj": {}
+    "D:\\Visual Studio Projects\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TE22ERILUN\\Desktop\\Programmering 2\\Arv Genomgång\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj": {
+    "D:\\Visual Studio Projects\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TE22ERILUN\\Desktop\\Programmering 2\\Arv Genomgång\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj",
+        "projectUniqueName": "D:\\Visual Studio Projects\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj",
         "projectName": "Arv Genomgång",
-        "projectPath": "C:\\Users\\TE22ERILUN\\Desktop\\Programmering 2\\Arv Genomgång\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj",
-        "packagesPath": "C:\\Users\\TE22ERILUN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TE22ERILUN\\Desktop\\Programmering 2\\Arv Genomgång\\PR2-Arv\\Arv Genomgång\\obj\\",
+        "projectPath": "D:\\Visual Studio Projects\\PR2-Arv\\Arv Genomgång\\Arv Genomgång.csproj",
+        "packagesPath": "C:\\Users\\erkki\\.nuget\\packages\\",
+        "outputPath": "D:\\Visual Studio Projects\\PR2-Arv\\Arv Genomgång\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\TE22ERILUN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\erkki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,9 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
         }
       },
       "frameworks": {
