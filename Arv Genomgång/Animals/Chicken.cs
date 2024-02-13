@@ -4,9 +4,10 @@ namespace Arv_Genomgång
 {
     public class Chicken: Animal 
     {
-        public Chicken(): base("Chicken", "buc buc", 35)
-        {
 
+        public Chicken(): base("Chicken", "buc buc")
+        {
+            
         }
 
         public override void Functionality()

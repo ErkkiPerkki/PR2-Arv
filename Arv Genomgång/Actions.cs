@@ -59,15 +59,70 @@ namespace Arv_Genomgång
             FarmManager.currentCommand = "market";
             FarmManager.previousCommand = null;
 
+            Dictionary<string, int> shelf = new() {
+                {"chicken", 35},
+                {"cow", 175},
+                {"tiger", 775}
+            };
+
             WriteStack stack = new(new List<WriteStackItem>{
                 new("--- Market ---\n", ConsoleColor.Yellow, false),
-
-                new("* Chicken", ConsoleColor.DarkCyan, false),
-                new($"[]", ConsoleColor.Yellow, false),
             });
+
+            foreach(KeyValuePair<string, int> pair in shelf) {
+                string key = Utility.FirstLetterUppercase(pair.Key);
+                stack.Items.Add(new($"* {key}", ConsoleColor.DarkCyan, false));
+                stack.Items.Add(new($" [${pair.Value}]\n", ConsoleColor.Green, false));
+            }
 
             stack.Draw();
 
+            string? input = Console.ReadLine();
+            if (input == null) return;
+
+            FarmManager.previousCommand = "market";
+
+            stack.Items.Clear();
+            input = input.ToLower();
+            if (!shelf.ContainsKey(input)) return;
+            if (FarmManager.Cash < shelf[input]) {
+                stack.Items.Clear();
+                stack.Items.Add(new("You broke XD\n", ConsoleColor.Red, true));
+                stack.Items.Add(new("Press any key to continue..\n", ConsoleColor.Gray, false));
+                stack.Draw();
+                Console.ReadKey();
+                MainMenu();
+                return;
+            }
+
+            string itemName = Utility.FirstLetterUppercase(input);
+            int itemPrice = shelf[input];
+
+            stack.Items.Add(new("Are you sure you want to buy ", ConsoleColor.DarkYellow, true));
+            stack.Items.Add(new($"[{itemName}] ", ConsoleColor.DarkCyan, true));
+            stack.Items.Add(new("for ", ConsoleColor.DarkYellow, true));
+            stack.Items.Add(new($"${itemPrice}", ConsoleColor.Green, true));
+            stack.Items.Add(new("? ", ConsoleColor.DarkYellow, true));
+            stack.Items.Add(new("(y/n)\n", ConsoleColor.DarkCyan, true));
+
+            stack.Draw(false);
+
+            input = Console.ReadLine();
+            if (input == null || input == "n") {
+                MainMenu();
+                return;
+            }
+
+            stack.Items.Clear();
+            stack.Items.Add(new("Successfully bought ", ConsoleColor.DarkGreen, true));
+            stack.Items.Add(new($"[{itemName}] ", ConsoleColor.DarkCyan, true));
+            stack.Items.Add(new("for ", ConsoleColor.DarkGreen, true));
+            stack.Items.Add(new($"${itemPrice}\n", ConsoleColor.Green, true));
+            stack.Items.Add(new("Press any key to continue..\n", ConsoleColor.Gray, false));
+            stack.Draw(false);
+
+            Console.ReadKey();
+            MainMenu();
         }
 
         static public void DisplayAnimal(string key)
