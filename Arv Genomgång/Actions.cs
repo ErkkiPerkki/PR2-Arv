@@ -1,4 +1,6 @@
-﻿namespace Arv_Genomgång
+﻿using Arv_Genomgång.Items;
+
+namespace Arv_Genomgång
 {
     static public class Actions
     {
@@ -6,7 +8,8 @@
             FarmManager.currentCommand = null;
             WriteStack stack = new(new List<WriteStackItem>
             {
-                new("--- Farm Actions ---\n", ConsoleColor.Yellow, false),
+                new("--- Farm Actions --- ", ConsoleColor.Yellow, false),
+                new($"[${FarmManager.Cash}]\n", ConsoleColor.Green, false),
                 new("* Animals\n", ConsoleColor.DarkCyan, false),
                 new("* Inventory\n", ConsoleColor.DarkCyan, false),
                 new("* Market\n", ConsoleColor.DarkCyan, false)
@@ -49,6 +52,22 @@
             }
 
             stack.Draw();
+        }
+
+        static public void Market()
+        {
+            FarmManager.currentCommand = "market";
+            FarmManager.previousCommand = null;
+
+            WriteStack stack = new(new List<WriteStackItem>{
+                new("--- Market ---\n", ConsoleColor.Yellow, false),
+
+                new("* Chicken", ConsoleColor.DarkCyan, false),
+                new($"[]", ConsoleColor.Yellow, false),
+            });
+
+            stack.Draw();
+
         }
 
         static public void DisplayAnimal(string key)
@@ -103,12 +122,20 @@
             List<Item> item = FarmManager.currentItem.Value.Item2;
             int count = item.Count;
 
+            int sum = 0;
+            foreach (Item Item in FarmManager.currentItem.Value.Item2) {
+                sum += Item.Value;
+            }
+
             WriteStack stack = new(new List<WriteStackItem>());
             
             if (action == "sell") {
-                stack.Items.Add(new($"Are you sure you want to sell ", ConsoleColor.DarkYellow, true));
-                stack.Items.Add(new($"{count} {itemName}s? ", ConsoleColor.White, true));
-                stack.Items.Add(new($"(y/n)\n", ConsoleColor.DarkCyan, true));
+                stack.Items.Add(new("Are you sure you want to sell ", ConsoleColor.DarkYellow, true));
+                stack.Items.Add(new($"{count} {itemName}s ", ConsoleColor.White, true));
+                stack.Items.Add(new("for ", ConsoleColor.DarkYellow, true));
+                stack.Items.Add(new($"${sum}", ConsoleColor.Green, true));
+                stack.Items.Add(new("?", ConsoleColor.DarkYellow, true));
+                stack.Items.Add(new("(y/n)\n", ConsoleColor.DarkCyan, true));
             } else {
                 return;
             }
@@ -122,12 +149,13 @@
             }
 
             if (input == "y") {
+                FarmManager.Cash += sum;
                 FarmManager.currentItem.Value.Item2.Clear();
                 stack.Items.Add(new($"Sold ", ConsoleColor.DarkGreen, true));
                 stack.Items.Add(new($"{count} ", ConsoleColor.Gray, true));
                 stack.Items.Add(new($"{itemName}s ", ConsoleColor.White, true));
                 stack.Items.Add(new($"for ", ConsoleColor.DarkGreen, true));
-                stack.Items.Add(new($"$25\n", ConsoleColor.Green, true));
+                stack.Items.Add(new($"${sum}\n", ConsoleColor.Green, true));
             }
 
             stack.Items.Add(new("Press any key to continue..\n", ConsoleColor.Gray, false));
@@ -135,11 +163,6 @@
             stack.Draw(false);
             Console.ReadKey();
             MainMenu();
-        }
-
-        static private void DisplayCash()
-        {
-            Utility.ColoredWrite($"  [{FarmManager.Cash}$]\n", ConsoleColor.Green);
         }
 
     }

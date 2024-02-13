@@ -1,4 +1,6 @@
-﻿namespace Arv_Genomgång
+﻿using Arv_Genomgång.Items;
+
+namespace Arv_Genomgång
 {
     public class Utility
     {
@@ -41,6 +43,15 @@
         static public string FirstLetterUppercase(string String)
         {
             return $"{char.ToUpper(String[0])}{String.Substring(1).ToLower()}";
+        }
+
+        static public void AddItemToInventory(Item item) {
+            string key = item.Name.ToLower();
+
+            if (!FarmManager.Inventory.ContainsKey(key)) {
+                FarmManager.Inventory.Add(key, new List<Item>());
+            }
+            FarmManager.Inventory[key].Add(item);
         }
 
     }

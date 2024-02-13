@@ -1,19 +1,21 @@
-﻿namespace Arv_Genomgång
+﻿using Arv_Genomgång.Items;
+
+namespace Arv_Genomgång
 {
     public class Cow: Animal
     {
-        public Cow(): base("Muuuu", "Cow")
+        public Cow(): base("Cow", "Muuuu", 175)
         {
             
         }
         
         public override void Functionality()
         {
-            int milk = 25 + Utility.Random.Next(1, 11);
-            //Utility.AnimatedWrite("SPFFFFFT..");
-            //Thread.Sleep(500);
-            //Utility.AnimatedWrite($"Milked cow for: {milk}ml of milk \n");
-            //Thread.Sleep(500);
+            if (Utility.Random.Next(0, 12) != 0) return;
+
+            int volume = Utility.Random.Next(1, 6);
+            Milk milk = new(volume);
+            Utility.AddItemToInventory(milk);
         }
     }
 }

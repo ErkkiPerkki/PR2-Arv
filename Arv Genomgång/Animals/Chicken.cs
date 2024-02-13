@@ -4,22 +4,18 @@ namespace Arv_Genomgång
 {
     public class Chicken: Animal 
     {
-        public Chicken(): base("buc buc", "Chicken")
+        public Chicken(): base("Chicken", "buc buc", 35)
         {
 
         }
 
         public override void Functionality()
         {
-            int weight = Utility.Random.Next(38, 51);
-            Egg egg = new(weight);
+            if (Utility.Random.Next(0, 3) != 0) return;
 
-            string key = egg.Name.ToLower();
-            if (!FarmManager.Inventory.ContainsKey(key)) {
-                FarmManager.Inventory.Add(key, new List<Item>());
-            }
-            FarmManager.Inventory[key].Add(egg);
-            
+            int weight = Utility.Random.Next(38, 52);
+            Egg egg = new(weight);
+            Utility.AddItemToInventory(egg);
 
             //Utility.AnimatedWrite("PLOP!");
             //Utility.AnimatedWrite($"Chicken layed an egg weighing {weight}g \n");

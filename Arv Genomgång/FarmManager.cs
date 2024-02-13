@@ -4,7 +4,7 @@ namespace Arv_Genomgång
 {
     internal class FarmManager
     {
-        static public int Cash = 25;
+        static public int Cash = 50;
         static public string? currentCommand;
         static public string? previousCommand;
         static public (string, List<Item>)? currentItem;
@@ -14,9 +14,6 @@ namespace Arv_Genomgång
         private static void Main()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Animals.Add("cow", new List<Animal>() {new Cow(), new Cow() , new Cow() });
-            Animals.Add("chicken", new List<Animal>() { new Chicken() });
-            Animals.Add("tiger", new List<Animal>() { new Tiger() });
 
             Thread thread = new(new ThreadStart(UpdateAnimals));
             thread.Start();
@@ -42,11 +39,10 @@ namespace Arv_Genomgång
                     if (currentCommand == "animals") {
                         Actions.DisplayAnimal(input);
                     }
-                    if (currentCommand == "inventory") {
+                    else if(currentCommand == "inventory") {
                         Actions.DisplayItem(input);
-                        continue;
                     }
-                    if (currentCommand == "displayItem") {
+                    else if (currentCommand == "displayItem") {
                         Actions.ItemAction(input);
                     }
 
@@ -55,17 +51,15 @@ namespace Arv_Genomgång
 
                 if (input == "animals") {
                     Actions.Animals();
-                    continue;
                 }
-
-                if (input == "inventory" || input == "inv") {
+                else if (input == "inventory" || input == "inv") {
                     Actions.Inventory();
-                    continue;
+                }
+                else if (input == "market") {
+                    Actions.Market();
                 }
 
-                if (input == "market") {
-                    continue;
-                }
+                continue;
             }
 
         }
@@ -74,13 +68,14 @@ namespace Arv_Genomgång
         {
             while (true) {
                 foreach (KeyValuePair<string, List<Animal>> pair in Animals) {
-                    foreach(Animal animal in pair.Value) {
+                    foreach (Animal animal in pair.Value) {
                         animal.Update();
                     }
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(5000);
             }
+
         }
     }
 }

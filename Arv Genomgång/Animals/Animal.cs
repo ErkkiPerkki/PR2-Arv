@@ -4,19 +4,22 @@
     {
         private string _call;
         private string _name;
+        private int _price;
 
         public string Call {get{return _call;}}
-        public string Name {get{ return _name;}}
+        public string Name {get{return _name;}}
+        public int Price {get{return _price;}}
 
-        public Animal(string call, string name = "NewAnimal")
+        public Animal(string name, string call, int price)
         {
             this._name = name;
             this._call = call;
+            this._price = price;
         }
 
         public virtual void Functionality()
         {
-            //Console.WriteLine("Default Functionality");
+
         }
 
         public void MakeNoise()

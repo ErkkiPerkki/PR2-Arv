@@ -2,7 +2,7 @@
 {
     public class Tiger: Animal
     {
-        public Tiger(): base("roar", "Tiger")
+        public Tiger(): base("Tiger", "roar", 775)
         {
 
         }
