@@ -4,7 +4,6 @@ namespace Arv_Genomgång
 {
     public class Cow: Animal
     {
-
         public Cow(): base("Cow", "Muuuu")
         {
             

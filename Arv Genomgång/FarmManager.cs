@@ -4,9 +4,11 @@ namespace Arv_Genomgång
 {
     internal class FarmManager
     {
-        static public int Cash = 50;
+        static public int Cash = 150;
         static public string? currentCommand;
         static public string? previousCommand;
+        static public bool forceBack = false;
+        static public List<Animal>? selectedAnimal;
         static public (string, List<Item>)? currentItem;
         static public Dictionary<string, List<Animal>> Animals = new();
         static public Dictionary<string, List<Item>> Inventory = new();
@@ -19,10 +21,10 @@ namespace Arv_Genomgång
             thread.Start();
 
             while (true) {
-                if (currentCommand == null) Actions.MainMenu();
-                
-                string? input = Console.ReadLine();
-                if (input == null) continue;
+                if (currentCommand == null || currentCommand == string.Empty) Actions.MainMenu();
+
+                string? input = forceBack ? "back" : Console.ReadLine();
+                if (input == null || input == string.Empty) continue;
                 input = input.ToLower();
 
                 if (input == "exit") {
@@ -33,9 +35,10 @@ namespace Arv_Genomgång
                 if (input == "back") {
                     currentCommand = null;
                     input = previousCommand;
+                    if (forceBack) forceBack = false;
                 }
 
-                if (currentCommand != null){
+                if (currentCommand != null) {
                     if (currentCommand == "animals") {
                         Actions.DisplayAnimal(input);
                     }
@@ -45,17 +48,20 @@ namespace Arv_Genomgång
                     else if (currentCommand == "displayItem") {
                         Actions.ItemAction(input);
                     }
+                    else if(currentCommand == "displayAnimal") {
+                        Actions.AnimalInteraction(input);
+                    }
 
                     continue;
                 }
 
-                if (input == "animals") {
+                if (input == "animals" || input == "anim") {
                     Actions.Animals();
                 }
                 else if (input == "inventory" || input == "inv") {
                     Actions.Inventory();
                 }
-                else if (input == "market") {
+                else if (input == "market" || input == "mark") {
                     Actions.Market();
                 }
 

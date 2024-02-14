@@ -54,5 +54,19 @@ namespace Arv_Genomgång
             FarmManager.Inventory[key].Add(item);
         }
 
+        static public void AddAnimal(Animal animal)
+        {
+            string key = animal.Name.ToLower();
+
+            if (!FarmManager.Animals.ContainsKey(key)) {
+                FarmManager.Animals.Add(key, new List<Animal>());
+            }
+            FarmManager.Animals[key].Add(animal);
+        }
+
+        static public void WaitForInput() {
+            ColoredWrite("Press any key to continue..", ConsoleColor.Gray);
+            Console.ReadKey();
+        }
     }
 }

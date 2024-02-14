@@ -19,11 +19,6 @@
 
         }
 
-        public void MakeNoise()
-        {
-            Console.WriteLine(_call);
-        }
-
         public void Update()
         {
             Functionality();

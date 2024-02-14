@@ -17,9 +17,6 @@ namespace Arv_Genomgång
             int weight = Utility.Random.Next(38, 52);
             Egg egg = new(weight);
             Utility.AddItemToInventory(egg);
-
-            //Utility.AnimatedWrite("PLOP!");
-            //Utility.AnimatedWrite($"Chicken layed an egg weighing {weight}g \n");
         }
     }
 }
