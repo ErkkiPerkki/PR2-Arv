@@ -1,6 +1,4 @@
-﻿using Arv_Genomgång.Items;
-
-namespace Arv_Genomgång
+﻿namespace Arv_Genomgång
 {
     public class Cow: Animal
     {

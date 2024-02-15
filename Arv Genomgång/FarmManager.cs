@@ -4,7 +4,7 @@ namespace Arv_Genomgång
 {
     internal class FarmManager
     {
-        static public int Cash = 150;
+        static public int Cash = 60;
         static public string? currentCommand;
         static public string? previousCommand;
         static public bool forceBack = false;

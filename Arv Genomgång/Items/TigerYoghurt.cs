@@ -1,12 +1,12 @@
 ﻿namespace Arv_Genomgång
 {
-    public class Milk : Item
+    public class TigerYoghurt : Item
     {
         private int volume;
 
         public int Volume {get{return volume;}}
 
-        public Milk(int volume): base("Milk", volume * 16)
+        public TigerYoghurt(int volume) : base("Tiger Yoghurt", volume * 125)
         {
             this.volume = volume;
         }

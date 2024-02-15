@@ -68,9 +68,12 @@ namespace Arv_Genomgång
             FarmManager.previousCommand = null;
 
             Dictionary<string, int> shelf = new() {
+                {"pissmyra", 15},
                 {"chicken", 35},
                 {"cow", 175},
+                {"sengångare", 450},
                 {"tiger", 775}
+                
             };
 
             WriteStack stack = new(new List<WriteStackItem>{
@@ -168,6 +171,13 @@ namespace Arv_Genomgång
                 else if (item == "tiger") {
                     newAnimal = new Tiger();
                 }
+                else if(item == "pissmyra") {
+                    newAnimal = new Pissmyra();
+                }
+                else if(item == "sengångare")
+                {
+                    newAnimal = new Sengångare();
+                }
                 Utility.AddAnimal(newAnimal);
             }
             
@@ -259,9 +269,7 @@ namespace Arv_Genomgång
                     return;
                 }
 
-                foreach (KeyValuePair<string, List<Item>> Pair in FarmManager.Inventory) {
-                    FarmManager.Inventory.Remove(Pair.Key);
-                }
+                FarmManager.Inventory.Clear();
                 FarmManager.Cash += totalValue;
 
                 Stack.Items = new() {
